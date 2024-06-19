@@ -1,0 +1,228 @@
+
+{% extends "layout.html" %} 
+{% block title %}Create Employee{% endblock %} 
+{%block headerContent %}
+<section class="content-header d-flex justify-content-between">
+  <h1>Employee <small>Create</small></h1>
+  <ol class="list">
+    <li>
+      <a href="/home/index"><i class="fa fa-dashboard"></i> Home</a>
+      <i class="fa-solid fa-angle-right"></i>
+    </li>
+    <li class="">Employee <i class="fa-solid fa-angle-right"></i></li>
+    <li class="active">Create</li>
+  </ol>
+</section>
+{% endblock %}
+
+{% block content %}
+<section class="content">
+  <div class="box box-info">
+    <div class="box-header with-border">
+      <h3 class="box-title">Employee Details</h3>
+    </div>
+    <form  id="frmEmployee" method="POST">
+        {% csrf_token %}
+      <div class="box-body">
+        <div class="col-xs-12">
+          <div class="row">
+            <div class="col-md-4 form-group">
+              <label class="required-label" for="FirstName">First Name</label>
+              <input
+                class="form-control"
+                id="FirstName"
+                maxlength="20"
+                name="FirstName"
+                placeholder="First Name"
+                type="text"
+                value=""
+              />
+              <span class="error-message" id="firstNameError"></span>
+            </div>
+            <div class="col-md-4 form-group">
+              <label class="required-label" for="LastName">Last Name</label>
+              <input
+                class="form-control"
+                id="LastName"
+                maxlength="20"
+                name="LastName"
+                placeholder="Last Name"
+                type="text"
+                value=""
+              />
+              <span class="error-message" id="lastNameError"></span>
+            </div>
+            <div class="col-md-4 form-group">
+              <label class="required-label" for="EmailId">Email</label>
+              <input
+                class="form-control"
+                id="EmailId"
+                name="EmailId"
+                placeholder="Email Id"
+                type="text"
+                value=""
+              />
+              <span class="error-message" id="emailError"></span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 form-group">
+              <label class="required-label" for="MobileNo">Mobile Number</label>
+              <input
+                class="form-control"
+                id="MobileNo"
+                maxlength="10"
+                name="MobileNo"
+                placeholder="Mobile No"
+                type="text"
+                value=""
+              />
+              <span class="error-message" id="phoneError"></span>
+            </div>
+            <div class="col-md-4 form-group">
+              <label for="DOB">Date Of Birth</label>
+              <input
+                class="form-control mydatepicker"
+                id="DOB"
+                name="DOB"
+                placeholder="dd/mm/yyyy"
+                type="date"
+                value=""
+               
+              />
+            </div>
+            <div class="col-md-4 form-group mt-top" style="margin-top: 30px;">
+              <label>Gender : </label>
+              <input
+                type="radio"
+                class="maleRadio"
+                name="rdbGender"
+                id="rdbMale"
+                value="M"
+                checked
+              />Male
+              <input
+                type="radio"
+                class="femaleRadio"
+                name="rdbGender"
+                id="rdbFemale"
+                value="F"
+              />Female
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 form-group">
+              <label for="Address">Address</label>
+              <textarea
+                class="form-control"
+                cols="20"
+                id="Address"
+                name="Address"
+                placeholder="Address"
+                rows="3"
+              ></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 form-group">
+              <label for="CountryId">Country</label>
+              <select
+                class="form-control"
+                id="CountryId"
+                name="CountryId"
+              >
+                <option value="">--Select Country--</option>
+                <option value="5">Bangladesh</option>
+                <option value="6">Canada</option>
+                <option value="8">China</option>
+                <option value="7">France</option>
+                <option value="1">India</option>
+                <option value="9">Japan</option>
+                <option value="10">Nepal</option>
+                <option value="2">Sri Lanka</option>
+                <option value="4">UK</option>
+                <option value="3">USA</option>
+              </select>
+            </div>
+            <div class="col-md-3 form-group">
+              <label for="CityId">City</label>
+              <input type="text" name="cityName" id="CityId" class="form-control">
+            </div>
+            
+          <div class="row">
+            <div class="col-md-12 form-group m-t-lg mt-4">
+              <h4>Skills</h4>
+              <hr />
+            </div>
+            <div class="col-md-12 form-group d-flex flex-wrap">
+              <div class="col-sm-3">
+                <input
+                  type="checkbox"
+                  id="chkSkill_5"
+                  name="chkSkill_5"
+                  class="chkSkill m-r-sm"
+                  value="5"
+                />&nbsp;AWS
+              </div>
+              <div class="col-sm-3">
+                <input
+                  type="checkbox"
+                  id="chkSkill_3"
+                  name="chkSkill_3"
+                  class="chkSkill m-r-sm"
+                  value="3"
+                />&nbsp;DevOps
+              </div>
+              <div class="col-sm-3">
+                <input
+                  type="checkbox"
+                  id="chkSkill_2"
+                  name="chkSkill_2"
+                  class="chkSkill m-r-sm"
+                  value="2"
+                />&nbsp;Full Stack Developer
+              </div>
+              <div class="col-sm-3">
+                <input
+                  type="checkbox"
+                  id="chkSkill_4"
+                  name="chkSkill_4"
+                  class="chkSkill m-r-sm"
+                  value="4"
+                />&nbsp;Middleware
+              </div>
+              <div class="col-sm-3">
+                <input
+                  type="checkbox"
+                  id="chkSkill_1"
+                  name="chkSkill_1"
+                  class="chkSkill m-r-sm"
+                  value="1"
+                />&nbsp;QA-Automation
+              </div>
+              <div class="col-sm-3">
+                <input
+                  type="checkbox"
+                  id="chkSkill_6"
+                  name="chkSkill_6"
+                  class="chkSkill m-r-sm"
+                  value="6"
+                />&nbsp;WebServices
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="box-footer text-right">
+        <button
+          type="submit"
+          class="btn btn-success m-r-xs"
+        >
+          Save
+        </button>
+        <a href="/employee/search_employee" class="btn btn-danger">Cancel</a>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock %}

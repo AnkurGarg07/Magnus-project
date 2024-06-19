@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: auto;
+    min-height: 100%;
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.login-page{
+    background-color: #d2d6de;
+}
+.login-box{
+    width: 360px;
+    margin: 5% auto;
+
+}
+.login-logo{
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 25px;
+    
+}
+.login-logo a{
+    color: #444;
+    text-decoration: none;
+
+    
+}
+b{
+    font-weight: 700;
+}
+.login-box-body{
+    background-color: #fff;
+    padding: 20px;
+}
+.login-box-msg{
+    margin: 0;
+    text-align: center;
+    padding: 0 20px 20px 20px;
+
+}
+.form-group{
+    margin-bottom: 15px;
+}
+.has-feedback .form-control{
+    padding-right: 42.5px;
+}
+.has-feedback {
+    position: relative;
+}
+.glyphicon-envelope:before {
+    content: "📩";
+}
+.glyphicon-lock:before {
+    content: "👜";
+}
+.form-control-feedback {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    display: block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    pointer-events: none;
+}
+.loginRow{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+
+}
+.social-auth-links{
+    display: flex;
+    flex-direction: column;
+}
+.forgotbtn{
+    color: #fff;
+    background-color: #3b5998;
+    border-color: rgba(0, 0, 0, .2);
+    border-width: 1px;
+    padding: 0.4rem;
+    text-decoration: none;
+
+
+}
+.box{
+    background-color: #3c8dbc;
+    margin-bottom: 20px;
+    border-radius: 3px;
+}
+.box-body{
+    padding: 20px 15px;
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+}

@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block title %}{{details}}{% endblock %}
+{%block headerContent %}
+<section class="content-header d-flex justify-content-between">
+  <h1>{{details}}</h1>
+  <ol class="list">
+    <li>
+      <a href="/home/index"><i class="fa fa-dashboard"></i> Home</a>
+      <i class="fa-solid fa-angle-right"></i>
+    </li>
+    <li class="">Employee <i class="fa-solid fa-angle-right"></i></li>
+    <li class="active">{{details}}</li>
+  </ol>
+</section>
+{% endblock %}

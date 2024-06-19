@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+{% block title %}Search employee{% endblock %}
+{%block headerContent %}
+<section class="content-header d-flex justify-content-between">
+  <h1>Employee <small>Search</small></h1>
+  <ol class="list">
+    <li>
+      <a href="/home/index"><i class="fa fa-dashboard"></i> Home</a>
+      <i class="fa-solid fa-angle-right"></i>
+    </li>
+    <li class="">Employee <i class="fa-solid fa-angle-right"></i></li>
+    <li class="active">Search</li>
+  </ol>
+  
+</section>
+
+{% endblock %}
+{% block content %}
+<section class="content">
+    <div class="box box-info">
+        <div class="box-header with-border d-flex justify-content-between align-items-center">
+          <h3 class="box-title">Search employee</h3>
+          <a href="/employee/create_employee/" class="btn btn-primary">Add employee</a>
+        </div>
+        <form class="frmEmployeeList" method='get'>
+
+            <div class="box-body box-body-list">
+                <div class="col-xs-12">
+                    <div class="row align-items-end">
+                        <div class="col-md-4 form-group">
+                            <label for="Name">Name</label>
+                            <input class="form-control" id="Name" name="nameQuery" placeholder="Employee Name" type="search" value="" />
+                        </div>                        
+                        <div class="col-md-4 form-group">
+                            <label for="MobileNo">Mobile No</label>
+                            <input class="form-control" id="MobileNo" name="mobileQuery" placeholder="Mobile No" type="search" value="" />
+                        </div>
+                        <div class="col-md-4 form-group mt_25">
+                            <button type="submit" id="btnSearch" class="btn btn-success m-r-xs">Search</button>
+                            <button type="button" id="btnClear" class="btn btn-danger">Clear</button>
+                        </div>
+                    </div>                    
+                </div>
+            </form>
+            <div class="container table-responsive mt-3">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>SNO</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Email</th>
+                                            <th>Mobile Number</th>
+                                            <th>DOB</th>
+                                            <th>Address</th>
+                                            <th>Gender</th>
+                                            <th>Country</th>
+                                            <th>City</th>
+                                            <th>Actions</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for e in emp  %}
+                                        <tr>
+                                            <td>{{forloop.counter}}</td>
+                                            <td>{{e.first_name}}</td>
+                                            <td>{{e.last_name}}</td>
+                                            <td>{{e.email}}</td>
+                                            <td>{{e.mobile}}</td>
+                                            <td>{{e.dob}}</td>
+                                            <td>{{e.address}}</td>
+                                            <td>{{e.Gender}}</td>
+                                            <td>{{e.country}}</td>
+                                            <td>{{e.city}}</td>
+                                            <td>
+                                                <a href="/employee/delete_employee/{{e.id}}" class="btn btn-danger">Delete</a>
+                                                <a href="/employee/update_employee/{{e.id}}" class="btn btn-success">update</a>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+            </div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    {% if emp.has_previous  %}
+                  <li class="page-item"><a class="page-link" href="/employee/search_employee/?page=1">First</a></li>
+                  <li class="page-item"><a class="page-link" href="/employee/search_employee/?page={{emp.previous_page_number}}">Previous</a></li>
+                  {% endif %}
+                  <li class="page-item disabled"><a class="page-link" href="#">{{currentPage}}</a></li>
+                  <li class="page-item disabled"><a class="page-link" href="#" >of {{totalPages}} pages</a></li>
+                  {% if emp.has_next %}
+                  <li class="page-item">
+                    <a class="page-link" href="/employee/search_employee/?page={{emp.next_page_number}}">Next</a>
+                  </li>
+                  
+                  <li class="page-item">
+                    <a class="page-link" href="/employee/search_employee/?page={{totalPages}}">Last</a>
+                  </li>
+                  {% endif %}
+                </ul>
+              </nav>
+</section>
+{% endblock %}

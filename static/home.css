@@ -1,0 +1,25 @@
+.pt_100{
+    padding-top: 100px
+}
+.m-5{
+    font-size: 14px;
+}
+.contentBox{
+    padding: 10px 30px;
+}
+.box1, .box2{
+    font-size: 14px;
+    padding: 10px 15px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-top: 3px solid #d2d6de;
+    background: #fff;
+    border-top-color: #3c8dbc;
+    text-align: left;
+    text-decoration: none;
+
+}
+.box2{
+    padding-top:20px;
+    padding-bottom: 20px;
+}
